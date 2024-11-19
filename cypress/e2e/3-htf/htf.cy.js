@@ -1,6 +1,7 @@
 describe('please work', () => {
-    beforeEach(() => {
-
-      cy.visit('https://hackthefuture.bignited.be/')
+    it('visit hackaton', () => {
+      cy.visit('https://hackthefuture.bignited.be')
+      cy.get('#action-button').click()
     })
-}  )
+
+})
