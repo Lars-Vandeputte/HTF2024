@@ -12,7 +12,31 @@ describe('please work', () => {
       .should('have.value', 'human')
       cy.get('#planet').type('bobland{enter}')
 
-      cy.get('img').click(220, 200)
+      cy.get('#continue').click()
+
+      cy.get('img').click(200, 195)
+      cy.get('.murder')
+      cy.get('.modal').click()
+      cy.get('.ski-button').click()
+
+      cy.get('#continue').click()
+
+      cy.getLocalStorage('code').then((codeNumbers) => {
+        console.log(codeNumbers)
+        let number = codeNumbers.split('')
+
+        cy.get('#numpad').click()
+
+
+        number.forEach((item) => {
+            cy.wait(500)
+            cy.get("#" + item).click()
+        });
+
+        cy.get('#enter').click()
+      })
+
+    //   cy.get('body').type("{upArrow}")
     })
 
 })
